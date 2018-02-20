@@ -14,11 +14,13 @@ app.get('/urlone', function(req,res){
 });
 
 app.get('/urltwo', function(req,res){
-   res.send('URL 2 article sent'); 
+   res.send('URL 2 article sent');
+   res.sendFile(path.join(__dirname, 'ui', 'article2.html'));
 });
 
 app.get('/urlthree', function(req,res){
-   res.send('URL 3 article sent'); 
+   res.send('URL 3 article sent');
+   res.sendFile(path.join(__dirname, 'ui', 'article3.html'));
 });
 
 app.get('/ui/style.css', function (req, res) {
