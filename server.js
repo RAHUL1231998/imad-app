@@ -34,7 +34,7 @@ var articles=
                                     tis is content if 3rd article           
                                 </p>`
             }
-}
+};
 function createTemplate(data)
 {
 var title=data.title;
