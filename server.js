@@ -11,6 +11,7 @@ app.get('/', function (req, res) {
 
 app.get('/urlone', function(req,res){
    res.send('URL 1 article sent'); 
+     res.sendFile(path.join(__dirname, 'ui', 'aarticle1.html'));
 });
 
 app.get('/urltwo', function(req,res){
