@@ -4,7 +4,7 @@ var path = require('path');
 
 var articles=
 { 
-            'articleone':{
+            urlone:{
                         title:"Article 1 page",
                         heading:'Welcome',
                         date:'20t feb 2018',
@@ -18,7 +18,7 @@ var articles=
                                                 this is content of 1st article.this is content of 1st article.this is content of 1st article.this is content of 1st article.this is content of 1st article.this is content of 1st article.this is content of 1st article.this is content of 1st article
                                             </p>`
             },
-            'articletwo':{
+            urltwo:{
                         title:"Article 2 page",
                         heading:'Welcome',
                         date:'24t feb 2018',
@@ -26,7 +26,7 @@ var articles=
                                    this is content of 2nd artice                
                                 </p>`
             },
-            'articlethree':{
+            urlthree:{
                         title:"Article 3 page",
                         heading:'Welcome',
                         date:'12th feb 2018',
@@ -74,8 +74,8 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/:articleName', function(req,res){
-     var articleName=req.params.articlename;
+app.get('/:urlName', function(req,res){
+     var urlName=req.params.urlname;
      res.send(createTemplate(articles[articleName]));
 });
 
