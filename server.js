@@ -2,21 +2,39 @@ var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
 
-var articleone= {
-    title:"Article 1 page",
-    heading:'Welcome',
-    date:'20t feb 2018',
-    content:`<p>
-                            this is content of 1st article.this is content of 1st article.this is content of 1st article.this is content of 1st article.this is content of 1st article.this is content of 1st article.this is content of 1st article.this is content of 1st article
-                        </p>
-                        <p>
-                            this is content of 1st article.this is content of 1st article.this is content of 1st article.this is content of 1st article.this is content of 1st article.this is content of 1st article.this is content of 1st article.this is content of 1st article
-                        </p>
-                        <p>
-                            this is content of 1st article.this is content of 1st article.this is content of 1st article.this is content of 1st article.this is content of 1st article.this is content of 1st article.this is content of 1st article.this is content of 1st article
-                        </p>`
-};
-
+var articles=
+{ 
+            'articleone':{
+                        title:"Article 1 page",
+                        heading:'Welcome',
+                        date:'20t feb 2018',
+                        content:`<p>
+                                                this is content of 1st article.this is content of 1st article.this is content of 1st article.this is content of 1st article.this is content of 1st article.this is content of 1st article.this is content of 1st article.this is content of 1st article
+                                            </p>
+                                            <p>
+                                                this is content of 1st article.this is content of 1st article.this is content of 1st article.this is content of 1st article.this is content of 1st article.this is content of 1st article.this is content of 1st article.this is content of 1st article
+                                            </p>
+                                            <p>
+                                                this is content of 1st article.this is content of 1st article.this is content of 1st article.this is content of 1st article.this is content of 1st article.this is content of 1st article.this is content of 1st article.this is content of 1st article
+                                            </p>`
+            },
+            'articletwo':{
+                        title:"Article 2 page",
+                        heading:'Welcome',
+                        date:'24t feb 2018',
+                        content:`<p>
+                                   this is content of 2nd artice                
+                                </p>`
+            },
+            'articlethree':{
+                        title:"Article 3 page",
+                        heading:'Welcome',
+                        date:'12th feb 2018',
+                        content:`<p>
+                                    tis is content if 3rd article           
+                                </p>`
+            }
+}
 function createTemplate(data)
 {
 var title=data.title;
@@ -56,16 +74,9 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/urlone', function(req,res){
-     res.send(createTemplate(articleone));
-});
-
-app.get('/urltwo', function(req,res){
-   res.sendFile(path.join(__dirname, 'ui', 'article2.html'));
-});
-
-app.get('/urlthree', function(req,res){
-      res.sendFile(path.join(__dirname, 'ui', 'article3.html'));
+app.get('/:articleName', function(req,res){
+     var articleName=req.params.articlename;
+     res.send(createTemplate(articles[articleName]));
 });
 
 app.get('/ui/style.css', function (req, res) {
