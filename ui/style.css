@@ -20,3 +20,14 @@ body {
     height: 200px;
 }
 
+.maincnt
+            {
+                max-width: 800px;
+                color: #3c32c5;
+                margin: 0 auto;
+                font-family: Georgia;
+                padding-top: 100px;
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
