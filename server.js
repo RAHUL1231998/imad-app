@@ -39,7 +39,7 @@ This is the content for my first article. This is the content for my first artic
     <p>
         This is the content for my third article.
     </p>`
-}
+},
 };
 
 function createTemplate(data){
