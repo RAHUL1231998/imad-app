@@ -123,11 +123,12 @@ app.get('/submit-name', function(req, res) {
     res.send(JSON.stringify(names));
 }); 
 
-app.get('/:articleName', function (req, res) {
+app.get('/articles/:articleName', function (req, res) {
     //article == article-one
     //articles[articleName] == {} content object for article one
     var articleName = req.params.articleName;
-    res.send(createTemplate(articles[articleName]));
+    pool.query("SELECT*FROM article WHERE tilte =");
+    res.send(createTemplate(articleData));
 });
  
 app.get('/ui/style.css', function (req, res) {
