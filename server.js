@@ -97,7 +97,14 @@ var pool = new Pool(config);
 app.get('/test-db', function(req,res){
     //make a request\
     //return the resposnse with results
-    
+   pool.query('SELECT*FROM Test', function(err,result){
+       if(err){
+           res.status(500).send(err.toString());
+       }
+       esle{
+           res.send(JSON.stringify(result));
+       }
+   }); 
 });
 
 var counter = 0;
