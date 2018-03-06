@@ -1,11 +1,11 @@
- var express = require('express');
+var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
 var Pool = require('pg').Pool;
 
 var config = {
-    user: 'rapr16cs',
-    database: 'rapr16cs',
+    user: 'ssum16cs',
+    database: 'ssum16cs',
     host: 'db.imad.hasura-app.io',
     port: '5432',
     password: process.env.DB_PASSWORD
@@ -17,7 +17,7 @@ app.use(morgan('combined'));
 
 var articles = {
     'article-one' : {    
-        title: 'Article One | Deepak Kumar',
+        title: 'Article One | Sumedha',
         heading: 'Article One',
         date: 'feb 21,2018',
         content: `
@@ -33,7 +33,7 @@ var articles = {
         
     },
     'article-two' : {
-        title: 'Article Two | Deepak Kumar',
+        title: 'Article Two | Sumedha',
         heading: 'Article Two',
         date: 'feb 22,2018',
         content: `
@@ -42,7 +42,7 @@ var articles = {
         </p>`
     },
     'article-three' : {
-        title: 'Article Three | Deepak Kumar',
+        title: 'Article Three | Sumedha',
         heading: 'Article Three',
         date: 'feb 23,2018',
         content: `
@@ -62,7 +62,7 @@ function createTemplate(data){
     <html>
         <head>
             <title>
-                Article One | Deepak Kumar
+                ${data.title}
             </title>
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <link href="/ui/style.css" rel="stylesheet" />
@@ -129,7 +129,7 @@ app.get('/articles/:articleName', function (req, res) {
     //article == article-one
     //articles[articleName] == {} content object for article one
     var articleName = req.params.articleName;
-    pool.query("SELECT*FROM article WHERE title = " [req.params.articleName], function(err,result){
+    pool.query("SELECT * FROM article WHERE title ='" +[req.params.articleName]+"'", function(err,result){
         if(err){
            res.status(500).send(err.toString());
        }
@@ -143,7 +143,7 @@ app.get('/articles/:articleName', function (req, res) {
            }
        }
     });
-    res.send(createTemplate(articleData));
+   // res.send(createTemplate(articleData));
 });
  
 app.get('/ui/style.css', function (req, res) {
