@@ -4,8 +4,8 @@ var path = require('path');
 var Pool = require('pg').Pool;
 
 var config = {
-    user: 'ssum16cs',
-    database: 'ssum16cs',
+    user: 'rapr16cs',
+    database: 'rapr16cs',
     host: 'db.imad.hasura-app.io',
     port: '5432',
     password: process.env.DB_PASSWORD
@@ -17,7 +17,7 @@ app.use(morgan('combined'));
 
 var articles = {
     'article-one' : {    
-        title: 'Article One | Sumedha',
+        title: 'Article One | Rahul',
         heading: 'Article One',
         date: 'feb 21,2018',
         content: `
@@ -33,7 +33,7 @@ var articles = {
         
     },
     'article-two' : {
-        title: 'Article Two | Sumedha',
+        title: 'Article Two | Rahul',
         heading: 'Article Two',
         date: 'feb 22,2018',
         content: `
@@ -42,7 +42,7 @@ var articles = {
         </p>`
     },
     'article-three' : {
-        title: 'Article Three | Sumedha',
+        title: 'Article Three | Rahul',
         heading: 'Article Three',
         date: 'feb 23,2018',
         content: `
